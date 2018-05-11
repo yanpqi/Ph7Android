@@ -30,15 +30,23 @@ function new_apk {
 }
 
 function clear_apk {
-   bash "$TOP_PATH/gradlew" clean
+    bash "$TOP_PATH/gradlew" clean
 }
 
 function android_log {
-   if [ "$1" == '' ]; then
+    if [ "$1" == '' ]; then
        adb logcat -c
     else:
        adb logcat | grep "$1"
     fi
+}
+
+function git_commit {
+    if [ "$1" == '' ]; then
+        echo 'commit failed without comment.'
+        exit
+    fi
+    git commit -m "$1"
 }
 
 # Commands shortcut.
@@ -51,3 +59,7 @@ alias dv.lg='android_log'
 
 alias 2s='cd $TOP_PATH/app/src/main/java/com/tribodys/ph7_android'
 alias 2='cd $TOP_PATH'
+
+alias gt.m='git_commit'
+alias gt.p='git push origin master'
+alias gt.u='git pull --rebase'
