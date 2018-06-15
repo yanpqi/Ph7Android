@@ -12,9 +12,28 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            </intent-filter>
+        </activity>
+        <activity android:name=".EventMainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            </intent-filter>
+        </activity>
+        <activity android:name=".ServiceControlActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service android:name=".components_usage.MyService" android:process=":remote">
+            <intent-filter>
+                <action android:name="com.tribodys.ph7_android.components_usage.MyService.MyServiceAIDL"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
