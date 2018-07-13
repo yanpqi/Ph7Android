@@ -28,7 +28,7 @@ public class EventMainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_main);
         mImgView = (ImageView) findViewById(R.id.iv);
-        mDetector = new ScaleGestureDetector(this, new MyScaleGestureDetector(this, mImgView));
+
 
         Bitmap sourceBitmap= BitmapFactory.decodeResource(getResources(),R.drawable.test);
 
@@ -43,6 +43,7 @@ public class EventMainActivity extends Activity {
 
         mImgView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         mImgView.setImageBitmap(sourceBitmap);
+        mDetector = new ScaleGestureDetector(this, new MyScaleGestureDetector(this, mImgView, screenSize[0]*1.0f/sourceBitmap.getWidth()));
 
         mImgView.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -50,6 +51,7 @@ public class EventMainActivity extends Activity {
                 return mDetector.onTouchEvent(motionEvent);
             }
         });
+        mImgView.setScaleType(ImageView.ScaleType.MATRIX);
     }
 
     public void setMatrix(Matrix matrix) {

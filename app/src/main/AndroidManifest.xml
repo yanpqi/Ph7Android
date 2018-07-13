@@ -31,7 +31,7 @@
         </activity>
         <service android:name=".components_usage.MyService" android:process=":remote">
             <intent-filter>
-                <action android:name="com.tribodys.ph7_android.components_usage.MyService.MyServiceAIDL"/>
+                <action android:name="com.tribodys.ph7_android.components_usage.MyServiceAIDL"/>
             </intent-filter>
         </service>
     </application>
